@@ -1,0 +1,25 @@
+import polars as pl
+import time
+
+arquivo1=pl.read_csv("202310_NovoBolsaFamilia.csv", separator=";", encoding="latin-1")
+arquivo2=pl.read_csv("202311_NovoBolsaFamilia.csv", separator=";", encoding="latin-1")
+arquivo3=pl.read_csv("202312_NovoBolsaFamilia.csv", separator=";", encoding="latin-1")
+
+inicio_tempo=time.time()
+parquet=df_polars.write_parquet=("20234tri_NovoBolsaFamilia_polars.parquet")
+print("Tempo de exportação com Polars:", time.time() - inicio_tempo, "segundos") 
+print(parquet)
+
+arquivo1=pl.read_csv("202310_NovoBolsaFamilia.csv", separator=";", encoding="latin-1") 
+arquivo2=pl.read_csv("202311_NovoBolsaFamilia.csv", separator=";", encoding="latin-1")
+arquivo3=pl.read_csv("202312_NovoBolsaFamilia.csv", separator=";", encoding="latin-1")
+
+inicio_tempo=time.time() #marcação do tempo de processamento
+df_polars=pl.concat([arquivo1,arquivo2,arquivo3])
+
+display(df_polars.head())
+
+print("Tempo de execução com Polars:", time.time() - inicio_tempo, "segundos") 
+
+
+df_polars.write_parquet('20234tri.parquet')
